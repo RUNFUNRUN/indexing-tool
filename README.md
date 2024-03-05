@@ -4,7 +4,7 @@ To install dependencies:
 
 ```bash
 bun install
-tocuh urls.ts
+touch urls.ts
 touch service_account.json
 ```
 
