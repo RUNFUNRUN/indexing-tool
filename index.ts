@@ -32,7 +32,7 @@ jwtClient.authorize(async (err, tokens) => {
       },
       body: JSON.stringify({
         url,
-        type: 'URL_UPDATED'
+        type: 'URL_DELETED'
       })
     });
     if (response.ok) {
