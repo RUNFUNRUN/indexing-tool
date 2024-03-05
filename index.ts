@@ -2,12 +2,6 @@ import key from './service_account.json';
 import { google } from 'googleapis';
 import { urls } from './urls';
 
-// urls.ts sample
-// export const urls = [
-//  'https://www.example.com/posts/1',
-//  'https://www.example.com/posts/2',
-// ];
-
 const jwtClient = new google.auth.JWT(
   key.client_email,
   undefined,
