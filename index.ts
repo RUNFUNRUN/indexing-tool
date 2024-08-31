@@ -1,5 +1,5 @@
-import key from './service_account.json';
 import { google } from 'googleapis';
+import key from './service_account.json';
 import { urls } from './urls';
 
 const jwtClient = new google.auth.JWT(
@@ -24,17 +24,20 @@ jwtClient.authorize(async (err, tokens) => {
   console.log('Successfully connected!');
   console.log('Sending request to Google Indexing API...');
   urls.map(async (url) => {
-    const response = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${tokens.access_token}`
+    const response = await fetch(
+      'https://indexing.googleapis.com/v3/urlNotifications:publish',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${tokens.access_token}`,
+        },
+        body: JSON.stringify({
+          url,
+          type: 'URL_DELETED',
+        }),
       },
-      body: JSON.stringify({
-        url,
-        type: 'URL_DELETED'
-      })
-    });
+    );
     if (response.ok) {
       console.info('URL sent:', url);
     } else {

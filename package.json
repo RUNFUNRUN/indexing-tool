@@ -6,12 +6,13 @@
     "start": "bun run index.ts"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "googleapis": "^133.0.0"
+    "googleapis": "^143.0.0"
   }
 }
